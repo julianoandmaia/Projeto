@@ -7,7 +7,7 @@
     <script type="text/javascript" charset="utf-8">
 
     document.addEventListener("deviceready", onDeviceReady, false);
-
+	
   
     function onDeviceReady() {
         checkConnection();
@@ -28,10 +28,26 @@
 
         alert('Connection type: ' + states[networkState]);
     }
+	
+	function onDeviceReady() {
+        var element = document.getElementById('deviceProperties');
 
+        element.innerHTML = 'Device Name: '     + device.name     + '<br />' + 
+                            'Device Cordova: '  + device.cordova + '<br />' + 
+                            'Device Platform: ' + device.platform + '<br />' + 
+                            'Device UUID: '     + device.uuid     + '<br />' + 
+                            'Device Model: '    + device.model     + '<br />' + 
+                            'Device Version: '  + device.version  + '<br />';
+    }
+
+ 
     </script>
   </head>
   <body>
-    <p>A dialog box will report the network state.</p>
+   
+    <p>Teste Aplicativo</p>
+	<input type="submit" OnClick="checkConnection()" value="enviar">
+	<p id="deviceProperties">Loading device properties...</p>
+	
   </body>
 </html>
