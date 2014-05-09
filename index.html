@@ -29,7 +29,11 @@
         alert('Connection type: ' + states[networkState]);
     }
 	
-	function onDeviceReady() {
+	function Deviceid() {
+        DeviceReady();
+    }
+	
+	function DeviceReady() {
         var element = document.getElementById('deviceProperties');
 
         element.innerHTML = 'Device Name: '     + device.name     + '<br />' + 
@@ -48,7 +52,7 @@
     <p>Teste Aplicativo2</p>
 	<input type="submit" OnClick="checkConnection()" value="enviar">
 	
-	<p id="onDeviceReady()">Loading device properties...</p>
+	<p id="Deviceid()">Loading device properties...</p>
 	
   </body>
 </html>
