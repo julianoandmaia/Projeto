@@ -5,7 +5,7 @@
 
     <script type="text/javascript" charset="utf-8" src="cordova-2.7.0.js"></script>
     <script type="text/javascript" charset="utf-8">
- // Wait for Cordova to load
+    // Wait for Cordova to load
     //
     document.addEventListener("deviceready", onDeviceReady, false);
 
@@ -26,15 +26,14 @@
                             'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
                             'Heading: '            + position.coords.heading               + '<br />' +
                             'Speed: '              + position.coords.speed                 + '<br />' +
-                            'Timestamp: '          + 
- position.timestamp                    + '<br />';
+                            'Timestamp: '          +                                   position.timestamp          + '<br />';
     }
 
     // onError Callback receives a PositionError object
     //
     function onError(error) {
         alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
+                'message: ' + error.message + '\n');
     }
 
     </script>
