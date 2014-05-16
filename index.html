@@ -6,40 +6,39 @@
     <script type="text/javascript" charset="utf-8" src="cordova-2.7.0.js"></script>
     <script type="text/javascript" charset="utf-8">
 
-       // Wait for Cordova to load
+ // Set an event to wait for Cordova to load
     //
     document.addEventListener("deviceready", onDeviceReady, false);
 
-    var watchID = null;
-
-    // Cordova is ready
+    // Cordova is loaded and Ready
     //
     function onDeviceReady() {
-        // Throw an error if no update is received every 30 seconds
-        var options = { timeout: 30000 };
-        watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
     }
 
-    // onSuccess Geolocation
+    // Display `Position` properties from the geolocation
     //
     function onSuccess(position) {
-        var element = document.getElementById('geolocation');
-        element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
-                            'Longitude: ' + position.coords.longitude     + '<br />' +
-                            '<hr />'      + element.innerHTML;
+        var div = document.getElementById('myDiv');
+
+        div.innerHTML = 'Latitude: '             + position.coords.latitude  + '<br/>' +
+                        'Longitude: '            + position.coords.longitude + '<br/>' +
+                        'Altitude: '             + position.coords.altitude  + '<br/>' +
+                        'Accuracy: '             + position.coords.accuracy  + '<br/>' +
+                        'Altitude Accuracy: '    + position.coords.altitudeAccuracy  + '<br/>' +
+                        'Heading: '              + position.coords.heading   + '<br/>' +
+                        'Speed: '                + position.coords.speed     + '<br/>';
     }
 
-    // onError Callback receives a PositionError object
+    // Show an alert if there is a problem getting the geolocation
     //
-    function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
+    function onError() {
+        alert('onError!');
     }
 
     </script>
   </head>
   <body>
-    <p id="geolocation">Watching geolocation...</p>
-	<input type="submit" OnClick="geolocation" value="teste1">
+    <div id="myDiv"></div>
   </body>
 </html>
